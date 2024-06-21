@@ -46,7 +46,6 @@ async def root(
         File(
             description="JSON Files to send to the OpenAI API",
             media_type="application/json",
-            # button text
             title="Upload JSON Files",
         ),
     ],
@@ -56,30 +55,10 @@ async def root(
         if file.content_type != "application/json":
             raise HTTPException(status_code=400, detail="Invalid File Type")
 
-    # Read and parse JSON files
-    json_contents = []
-    for file in files:
-        content = await file.read()
-        try:
-            json_content = json.loads(content)
-            json_contents.append(json_content)
-        except json.JSONDecodeError:
-            raise HTTPException(status_code=400, detail="Invalid JSON File")
-
-    # Combine all JSON contents into a single list of data
-    combined_data = []
-    for content in json_contents:
-        combined_data.extend(content if isinstance(content, list) else [content])
-
-    # Construct messages for OpenAI
     messages = [
         {
             "role": "system",
             "content": "You are a helpful assistant that provides insights based on search result data.",
-        },
-        {
-            "role": "user",
-            "content": f"Here is the search result data: {json.dumps(combined_data)}",
         },
         {"role": "user", "content": f"{prompt}"},
     ]
