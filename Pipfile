@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+requests = "==2.29.0"
+python-dotenv = "*"
+debugpy = "==1.6.7"
+python-multipart = "==0.0.6"
+pydantic = {extras = ["email"], version = "*"}
+pydantic-settings = "==2.3.3"
+pytz = "*"
+httpx = "*"
+websockets = "*"
+openai = "*"
+
+[dev-packages]
+black = "*"
+
+[requires]
+python_version = "3.11"

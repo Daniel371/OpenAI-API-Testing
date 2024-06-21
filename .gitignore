@@ -1,0 +1,36 @@
+.idea
+.git
+.ipynb_checkpoints
+.mypy_cache
+__pycache__
+.pytest_cache
+htmlcov
+dist
+site
+.coverage
+coverage.xml
+.netlify
+test.db
+log.txt
+Pipfile.lock
+env3.*
+env
+.env
+.env.*
+.env.dev
+docs_build
+venv
+docs.zip
+archive.zip
+__pycache__
+
+# vim temporary files
+*~
+.*.sw?
+dmd-auth-firebase.json
+
+# Database mount folders
+postgres_data
+sql_server_data
+sql_server_backup
+/bpcs_test_data/files/**

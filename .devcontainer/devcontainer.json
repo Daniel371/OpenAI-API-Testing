@@ -1,0 +1,35 @@
+{
+	"name": "OpenAI BACKEND",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+	"runArgs": [
+		"--name=open-ai-backend",
+        "-p", "8000:8000",
+		"-p", "4000:4000"
+	],
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=consistent",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"njpwerner.autodocstring",
+				"ms-python.black-formatter",
+				"eamodio.gitlens",
+				"ms-python.vscode-pylance",
+				"ms-python.python",
+				"donjayamanne.python-environment-manager"
+			],
+			"python": {
+				"pythonPath": "/usr/local/bin/python"
+			}
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+	}
+}
